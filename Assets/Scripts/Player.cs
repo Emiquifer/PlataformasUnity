@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float inputH;
+
+    [SerializeField] private TextMeshProUGUI vidasText;
 
     [Header("Sistema de movimiento")]
     [SerializeField] private Transform pies;
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        vidasText.text = GetComponent<SistemaVidas>().vidas.ToString();
     }
 
     // Update is called once per frame
